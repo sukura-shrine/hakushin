@@ -1,0 +1,24 @@
+{
+  "name": "shrine",
+  "version": "0.0.1",
+  "description": "micro app tools",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukura-shrine/shrine.git"
+  },
+  "author": "hakushinring",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/sukura-shrine/shrine/issues"
+  },
+  "homepage": "https://github.com/sukura-shrine/shrine#readme"
+}

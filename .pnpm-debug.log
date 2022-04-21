@@ -1,0 +1,21 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1,
+    "workspacePrefix": "/Users/my/github/shrine"
+  },
+  "1 error pnpm": {
+    "shortMessage": "Command failed with exit code 1: /usr/local/bin/pnpm add create-shrine-cli --global --global-dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800 --dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800",
+    "command": "/usr/local/bin/pnpm add create-shrine-cli --global --global-dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800 --dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800",
+    "escapedCommand": "\"/usr/local/bin/pnpm\" add create-shrine-cli --global --global-dir \"/private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800\" --dir \"/private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800\"",
+    "exitCode": 1,
+    "failed": true,
+    "timedOut": false,
+    "isCanceled": false,
+    "killed": false,
+    "err": {
+      "name": "pnpm",
+      "message": "Command failed with exit code 1: /usr/local/bin/pnpm add create-shrine-cli --global --global-dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800 --dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800",
+      "stack": "pnpm: Command failed with exit code 1: /usr/local/bin/pnpm add create-shrine-cli --global --global-dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800 --dir /private/var/folders/z1/dvtlv11x7rx5q5bcbzfjsyd00000gn/T/dlx-800\n    at makeError (/usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:42606:17)\n    at handlePromise (/usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:43177:33)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async Object.handler (/usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:177923:7)\n    at async /usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:182614:21\n    at async run (/usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:182588:34)\n    at async runPnpm (/usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:182807:5)\n    at async /usr/local/pnpm-global/5/node_modules/.pnpm/pnpm@6.32.9/node_modules/pnpm/dist/pnpm.cjs:182799:7"
+    }
+  }
+}
