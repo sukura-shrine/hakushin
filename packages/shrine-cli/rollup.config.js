@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript'
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/bundle.js',
+    file: 'dist/shrine-cli.js',
     format: 'cjs'
   },
   exclude: [

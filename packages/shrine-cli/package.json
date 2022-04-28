@@ -10,6 +10,7 @@
   "author": "鱼塘",
   "license": "ISC",
   "dependencies": {
+    "@shrine/template": "workspace:^1.0.0",
     "cac": "^6.7.12",
     "commander": "^9.2.0",
     "cross-spawn": "^7.0.3"

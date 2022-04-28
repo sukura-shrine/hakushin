@@ -1,5 +1,5 @@
 {
-  "name": "shrine-console",
+  "name": "@shrine/console",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
