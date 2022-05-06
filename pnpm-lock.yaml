@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 importers:
 
@@ -23,6 +23,7 @@ importers:
       commander: ^9.2.0
       cross-spawn: ^7.0.3
       rollup: ^2.70.2
+      rollup-plugin-preserve-shebang: ^1.0.1
       tslib: ^2.4.0
       typescript: ^4.6.3
     dependencies:
@@ -31,11 +32,12 @@ importers:
       cross-spawn: registry.npmmirror.com/cross-spawn/7.0.3
     devDependencies:
       '@rollup/plugin-json': registry.npmmirror.com/@rollup/plugin-json/4.1.0_rollup@2.70.2
-      '@rollup/plugin-typescript': registry.npmmirror.com/@rollup/plugin-typescript/8.3.2_056aba5e56e0ab5307259a29131f3fbe
+      '@rollup/plugin-typescript': registry.npmmirror.com/@rollup/plugin-typescript/8.3.2_avvluxsw4cvvgbzftiurghz7xy
       '@tsconfig/create-react-app': registry.npmmirror.com/@tsconfig/create-react-app/1.0.2
       '@types/node': registry.npmmirror.com/@types/node/17.0.25
       chalk: registry.npmmirror.com/chalk/5.0.1
       rollup: registry.npmmirror.com/rollup/2.70.2
+      rollup-plugin-preserve-shebang: registry.npmmirror.com/rollup-plugin-preserve-shebang/1.0.1
       tslib: registry.npmmirror.com/tslib/2.4.0
       typescript: registry.npmmirror.com/typescript/4.6.3
 
@@ -56,7 +58,7 @@ packages:
       rollup: registry.npmmirror.com/rollup/2.70.2
     dev: true
 
-  registry.npmmirror.com/@rollup/plugin-typescript/8.3.2_056aba5e56e0ab5307259a29131f3fbe:
+  registry.npmmirror.com/@rollup/plugin-typescript/8.3.2_avvluxsw4cvvgbzftiurghz7xy:
     resolution: {integrity: sha512-MtgyR5LNHZr3GyN0tM7gNO9D0CS+Y+vflS4v/PHmrX17JCkHUYKvQ5jN5o3cz1YKllM3duXUqu3yOHwMPUxhDg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@rollup/plugin-typescript/-/plugin-typescript-8.3.2.tgz}
     id: registry.npmmirror.com/@rollup/plugin-typescript/8.3.2
     name: '@rollup/plugin-typescript'
@@ -239,6 +241,14 @@ packages:
     version: 2.0.0
     dev: false
 
+  registry.npmmirror.com/magic-string/0.25.9:
+    resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/magic-string/-/magic-string-0.25.9.tgz}
+    name: magic-string
+    version: 0.25.9
+    dependencies:
+      sourcemap-codec: registry.npmmirror.com/sourcemap-codec/1.4.8
+    dev: true
+
   registry.npmmirror.com/minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/minimatch/-/minimatch-3.1.2.tgz}
     name: minimatch
@@ -302,6 +312,14 @@ packages:
       glob: registry.npmmirror.com/glob/7.2.0
     dev: true
 
+  registry.npmmirror.com/rollup-plugin-preserve-shebang/1.0.1:
+    resolution: {integrity: sha512-gk7ExGBqvUinhgrvldKHkAKXXwRkWMXMZymNkrtn50uBgHITlhRjhnKmbNGwAIc4Bzgl3yLv7/8Fhi/XeHhFKg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rollup-plugin-preserve-shebang/-/rollup-plugin-preserve-shebang-1.0.1.tgz}
+    name: rollup-plugin-preserve-shebang
+    version: 1.0.1
+    dependencies:
+      magic-string: registry.npmmirror.com/magic-string/0.25.9
+    dev: true
+
   registry.npmmirror.com/rollup/2.70.2:
     resolution: {integrity: sha512-EitogNZnfku65I1DD5Mxe8JYRUCy0hkK5X84IlDtUs+O6JRMpRciXTzyCUuX11b5L5pvjH+OmFXiQ3XjabcXgg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rollup/-/rollup-2.70.2.tgz}
     name: rollup
@@ -327,6 +345,12 @@ packages:
     version: 3.0.0
     engines: {node: '>=8'}
     dev: false
+
+  registry.npmmirror.com/sourcemap-codec/1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz}
+    name: sourcemap-codec
+    version: 1.4.8
+    dev: true
 
   registry.npmmirror.com/supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz}
