@@ -1,18 +1,20 @@
 import process from 'process'
 import cac from 'cac'
 import pkg from '../package.json'
+import init from './init'
 import createApp from './create-app'
 
 const cli = cac('shrine')
 
 cli
   .command('init [name]', '初始化项目')
-  .action((name) => {
+  .action(async (name) => {
     let projectName = name
     if (!projectName) {
       const list = process.cwd().split('/')
       projectName = list[list.length - 1]
     }
+    await init(projectName)
   })
 
 cli

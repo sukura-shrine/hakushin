@@ -1,7 +1,6 @@
 {
   "extends": "@tsconfig/create-react-app/tsconfig.json",
   "compilerOptions": {
-    "jsx": "react",
     "target": "es6",
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
@@ -9,7 +8,6 @@
     "esModuleInterop": true,
     "baseUrl": ".",
   },
-
   "exclude": [
     "node_modules/**",
   ]

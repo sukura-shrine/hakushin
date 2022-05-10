@@ -11,7 +11,6 @@
     "url": "git+https://github.com/sukura-shrine/shrine.git"
   },
   "author": "hakushinring",
-  "license": "ISC",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

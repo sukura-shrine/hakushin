@@ -9,9 +9,9 @@
     "dev": "rollup -c --watch",
     "build": "rollup -c"
   },
-  "author": "鱼塘",
-  "license": "ISC",
+  "author": "hakushinring",
   "dependencies": {
+    "@shrine/utils": "workspace:^1.0.0",
     "cac": "^6.7.12",
     "commander": "^9.2.0",
     "cross-spawn": "^7.0.3"

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import cp from 'child_process'
 
-export default async function (projectName: string) {
+export default async function init (projectName: string) {
   if (fs.existsSync(projectName)) {
     throw new Error(`${projectName} 文件夹已经存在`)
   }
@@ -11,7 +11,7 @@ export default async function (projectName: string) {
 
   child.on('close', (code: number) => {
     if (code !== 0) {
-      return console.error(`ERROR: code ${code}`)
+      return console.error(`INIT ERROR: code ${code}`)
     }
   })
 }
