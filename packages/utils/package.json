@@ -1,6 +1,6 @@
 {
   "name": "@shrine/utils",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/utils.js",
   "scripts": {
@@ -9,6 +9,8 @@
   "author": "hakushinring",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
+    "@tsconfig/create-react-app": "^1.0.2",
+    "@types/node": "^17.0.25",
     "rollup": "^2.70.2"
   }
 }

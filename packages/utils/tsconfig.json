@@ -1,14 +1,18 @@
 {
-  "extends": "@tsconfig/create-react-app/tsconfig.json",
   "compilerOptions": {
     "target": "es6",
     "skipLibCheck": true,                     /* Skip type checking of declaration files. */
     "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "baseUrl": ".",
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "."
   },
   "exclude": [
     "node_modules/**",
+    "dist"
   ]
 }

@@ -10,6 +10,6 @@ export default {
     "./dist/**/*",
   ],
   plugins: [
-    typescript(),
+    typescript({ tsconfig: './tsconfig.json' }),
   ],
 }
