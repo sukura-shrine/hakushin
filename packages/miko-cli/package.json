@@ -1,5 +1,5 @@
 {
-  "name": "@shrine/cli",
+  "name": "@miko/cli",
   "version": "0.0.1",
   "description": "",
   "bin": {

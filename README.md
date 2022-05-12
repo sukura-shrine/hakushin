@@ -1,3 +1,3 @@
-# shrine
+# miko
 关注开发计划
-https://github.com/sukura-shrine/shrine/issues/1
+https://github.com/sukura-shrine/miko/issues/1

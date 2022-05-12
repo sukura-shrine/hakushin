@@ -1,5 +1,5 @@
 {
-  "name": "@shrine/utils",
+  "name": "@miko/utils",
   "version": "0.0.1",
   "description": "",
   "main": "dist/utils.js",
