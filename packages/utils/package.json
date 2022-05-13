@@ -12,5 +12,9 @@
     "@tsconfig/create-react-app": "^1.0.2",
     "@types/node": "^17.0.25",
     "rollup": "^2.70.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
