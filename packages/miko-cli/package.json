@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "shrine": "bin/index.js"
+    "miko": "bin/index.js"
   },
   "scripts": {
     "dev": "rollup -c --watch",
@@ -11,7 +11,7 @@
   },
   "author": "hakushinring",
   "dependencies": {
-    "@shrine/utils": "workspace:^1.0.0",
+    "@miko/utils": "workspace:^0.0.1",
     "cac": "^6.7.12",
     "commander": "^9.2.0",
     "cross-spawn": "^7.0.3"
