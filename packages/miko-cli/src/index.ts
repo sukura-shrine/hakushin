@@ -4,7 +4,7 @@ import pkg from '../package.json'
 import init from './init'
 import createApp from './create-app'
 
-const cli = cac('shrine')
+const cli = cac('haku')
 
 cli
   .command('init [name]', '初始化项目')

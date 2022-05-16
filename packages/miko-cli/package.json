@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "miko": "bin/index.js"
+    "haku": "bin/index.js"
   },
   "scripts": {
     "dev": "rollup -c --watch",
