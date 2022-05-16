@@ -1,5 +1,5 @@
 {
-  "name": "@miko/cli",
+  "name": "@hakushin/cli",
   "version": "0.0.1",
   "description": "",
   "bin": {
@@ -11,7 +11,7 @@
   },
   "author": "hakushinring",
   "dependencies": {
-    "@miko/utils": "workspace:^0.0.1",
+    "@hakushin/utils": "workspace:^0.0.1",
     "cac": "^6.7.12",
     "commander": "^9.2.0",
     "cross-spawn": "^7.0.3"
