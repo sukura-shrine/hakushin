@@ -1,10 +1,10 @@
 import pluginJson from '@rollup/plugin-json'
-import typescript from '@rollup/plugin-typescript'
+import typescript from 'rollup-plugin-typescript2'
 
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/shrine-cli.js',
+    file: 'dist/haku-cli.js',
     format: 'cjs'
   },
   exclude: [

@@ -1,8 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import process from 'process'
-import cp from 'child_process'
-import { mergePackageJson } from '@shrine/utils'
+import chalk from 'chalk'
+import * as download from 'download-git-repo'
+import { mergePackageJson } from '@hakushin/utils'
 
 export default async function create (appName: string) {
   let driname = process.cwd().replace(/packages$/, '')
@@ -19,13 +20,15 @@ export default async function create (appName: string) {
     throw new Error(`${projectName} 文件夹已经存在`)
   }
 
-  const args = ['clone', '-b', 'mobile', `https://github.com/sukura-shrine/app-template.git`, appName]
-  const child = cp.spawn('git', args, { stdio: 'inherit', cwd: driname })
-
-  child.on('close', (code: number) => {
-    if (code !== 0) {
-      return console.error('');
+  console.log(chalk.green('git repo: sukura-shrine/app-template'))
+  console.log(chalk.green('branch: mobile'))
+  console.log('download start')
+  console.log(download)
+  download('sukura-shrine/app-template#mobile', appName, (error) => {
+    if (error) {
+      return console.error(error)
     }
+    console.log('download end')
     mergePackageJson(driname, appName)
   })
 }
