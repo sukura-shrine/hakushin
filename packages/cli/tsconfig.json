@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "skipLibCheck": true,                     /* Skip type checking of declaration files. */
-    "forceConsistentCasingInFileNames": true,  /* Disallow inconsistently-cased references to the same file. */
+    "alwaysStrict": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "baseUrl": ".",
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "."
+    "declarationDir": "dist"
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
-    "node_modules/**",
+    "node_modules",
     "dist"
   ]
 }

@@ -4,7 +4,7 @@ export default {
   input: 'src/index.ts',
   output: {
     file: 'dist/utils.js',
-    format: 'cjs'
+    format: 'esm'
   },
   exclude: [
     "./dist/**/*",

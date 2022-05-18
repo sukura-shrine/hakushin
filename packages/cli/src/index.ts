@@ -24,8 +24,6 @@ cli
   })
 
 cli.help()
-
 cli.version(pkg.version)
-
-const parsed = cli.parse()
+cli.parse()
 // console.log(JSON.stringify(parsed, null, 2))
