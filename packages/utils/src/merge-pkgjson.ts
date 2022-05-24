@@ -6,9 +6,15 @@ const regName = /(?<=name\s*=\s*)\S+/
 const regEmail = /(?<=email\s*=\s*)\S+/
 
 function gitUserInfo (dirname: string) {
-  const file = fs.readFileSync(path.join(dirname, '.git/config'), 'utf-8')
-  let userName = file.match(regName)
-  let userEmail = file.match(regEmail)
+  const gitConfigPath = path.join(dirname, '../', '.git/config')
+  let userName
+  let userEmail
+  if (fs.existsSync(gitConfigPath)) {
+    const file = fs.readFileSync(gitConfigPath, 'utf-8')
+    userName = file.match(regName)
+    userEmail = file.match(regEmail)
+  }
+
   if (!userName) {
       const configPath = path.join(os.homedir(), '.gitconfig');
       const file = fs.readFileSync(configPath, 'utf-8')
@@ -50,7 +56,7 @@ function generateShrineConfig (dirname: string) {
 export default function mergePackageJson (dirname: string, appName: string) {
   const projectName = path.join(dirname, appName)
   try {
-    const { name, email } = gitUserInfo(projectName)
+    const { name, email } = gitUserInfo(dirname)
     const pkgPath = path.join(projectName, 'package.json')
     let pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
