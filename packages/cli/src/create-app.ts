@@ -1,9 +1,20 @@
 import fs from 'fs'
 import path from 'path'
 import process from 'process'
-import cp from 'child_process'
 import chalk from 'chalk'
-import { mergePackageJson } from '@hakushin/utils'
+import { mergePackageJson, fetchGitFileTree } from '@hakushin/utils'
+
+function writeTreeSync (tree, dir) {
+  tree.forEach(item => {
+    const thePathName = path.join(dir, item.name)
+    if (item.type === 'tree') {
+      fs.mkdirSync(thePathName)
+      writeTreeSync(item.children, thePathName)
+    } else if (item.type === 'blob') {
+      fs.writeFileSync(thePathName, item.content)
+    }
+  })
+}
 
 export default async function create (appName: string) {
   let driname = process.cwd().replace(/packages$/, '')
@@ -23,11 +34,12 @@ export default async function create (appName: string) {
   console.log('git repo: sukura-shrine/app-template')
   console.log('branch: mobile')
   console.log(chalk.yellow('download start'))
+  console.log()
 
-  const cmd = `git clone -b mobile https://github.com/sukura-shrine/app-template.git ${projectName}`
+  const tree = await fetchGitFileTree()
 
-  cp.execSync(cmd, { stdio: 'inherit' })
-  fs.rmSync(`${projectName}/.git`, { force: true, recursive: true })
+  fs.mkdirSync(projectName)
+  writeTreeSync(tree, projectName)
 
   console.log(chalk.yellow('download end'))
   mergePackageJson(driname, appName)
