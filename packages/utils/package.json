@@ -17,5 +17,8 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "octokit": "^1.7.1"
   }
 }
