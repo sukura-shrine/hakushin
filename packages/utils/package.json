@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/utils.js",
   "scripts": {
+    "dev": "rollup -c  --watch",
     "build": "rollup -c"
   },
   "author": "hakushinring",
