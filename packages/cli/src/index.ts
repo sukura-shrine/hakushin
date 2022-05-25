@@ -26,4 +26,3 @@ cli
 cli.help()
 cli.version(pkg.version)
 cli.parse()
-// console.log(JSON.stringify(parsed, null, 2))

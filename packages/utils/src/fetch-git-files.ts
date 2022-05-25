@@ -13,12 +13,12 @@ type TreeNode = {
 async function fetchTree (url: string, dir = '/'): Promise<TreeNode[]> {
   const { data } = await octokit.request(`GET ${url}`)
   const list = []
-  for (const item of data.tree) {
-    const node: TreeNode = { type: item.type, name: item.path, dir }
-    if (item.type === 'tree') {
-      node.children = await fetchTree(item.url, path.join(dir, item.path))
-    } else if (item.type === 'blob') {
-      node.content = await fetchFile(item.url)
+  for (const item of data) {
+    const node: TreeNode = { type: item.type, name: item.name, dir }
+    if (item.type === 'dir') {
+      node.children = await fetchTree(item.url, path.join(dir, item.name))
+    } else if (item.type === 'file') {
+      node.content = await fetchFile(item.git_url)
       console.log(`- download file: ${item.path}`)
     }
     list.push(node)
@@ -32,6 +32,6 @@ async function fetchFile (url: string): Promise<string> {
 }
 
 export default async function fetchGitFileTree (): Promise<TreeNode[]> {
-  const url = '/repos/sukura-shrine/app-template/git/trees/3bcf28dc8f08d810a3fa54a27e11984f61a007f3'
+  const url = '/repos/sukura-shrine/app-template/contents?ref=mobile'
   return await fetchTree(url)
 }
