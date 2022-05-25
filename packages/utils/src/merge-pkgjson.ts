@@ -26,7 +26,7 @@ function gitUserInfo (dirname: string) {
   return { name, email }
 }
 
-function generateShrineConfig (dirname: string) {
+function generatePackageConfig (dirname: string) {
   const theDir = fs.opendirSync(dirname)
 
   const portList = []
@@ -43,13 +43,13 @@ function generateShrineConfig (dirname: string) {
       continue
     }
     const pkgJson = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-    const port = pkgJson.shrine?.port
+    const port = pkgJson.hakushin?.port
     port && portList.push(port)
   }
-  const maxPort = Math.max(...portList)
+  const maxPort = portList.length > 0 ? Math.max(...portList) + 1 : 3000
 
   return {
-    port: maxPort ? maxPort + 1 : 3000
+    port: maxPort
   }
 }
 
@@ -60,8 +60,8 @@ export default function mergePackageJson (dirname: string, appName: string) {
     const pkgPath = path.join(projectName, 'package.json')
     let pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
-    const shrine = generateShrineConfig(dirname)
-    pkgJson = { ...pkgJson, name: appName, author: name, email, shrine }
+    const hakushin = generatePackageConfig(dirname)
+    pkgJson = { ...pkgJson, name: appName, author: name, email, hakushin }
     fs.writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2))
   } catch (error: any) {
     throw new Error(error)
