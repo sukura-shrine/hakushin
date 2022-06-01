@@ -3,6 +3,7 @@ import cac from 'cac'
 import pkg from '../package.json'
 import init from './init'
 import createApp from './create-app'
+import devServer from '@hakushin/dev-server'
 
 const cli = cac('haku')
 
@@ -22,6 +23,8 @@ cli
   .action(async (name) => {
     await createApp(name)
   })
+
+devServer(cli)
 
 cli.help()
 cli.version(pkg.version)
