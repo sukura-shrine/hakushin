@@ -5,18 +5,17 @@ import { getPkgNames } from './utils.js'
 
 function start (pkgName) {
   spawn('pnpm', ['start'], { cwd: `packages/${pkgName}`, stdio: 'inherit' })
-  // openUrl('http://localhost:${}')
-  process.exit(0)
 }
 
 export default function devServer (cli) {
-  const pkgNames = getPkgNames(process.cwd())
-  if (pkgNames.length === 0) {
-    return console.log('package 数量为0，请先创建应用')
-  }
   cli
     .command('micro [name]', 'desc')
     .action((name) => {
+      const pkgNames = getPkgNames(process.cwd())
+      if (pkgNames.length === 0) {
+        return console.log('package 数量为0，请先创建应用')
+      }
+
       if (name) {
         return start(name)
       }

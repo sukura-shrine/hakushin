@@ -11,7 +11,7 @@ import { getPkgNames } from './utils.js'
 
 async function start (pkgName) {
   const subprocess = spawn('haku', ['micro', pkgName])
-  subprocess.on('spawn', () => {
+  subprocess.on('spawn', async () => {
     const microPkg = fs.readFileSync(`packages/${pkgName}/package.json`).toString()
     const { hakushin: { port } } = JSON.parse(microPkg)
 
@@ -23,9 +23,8 @@ async function start (pkgName) {
     const dirname = path.join(new URL('.', import.meta.url).pathname, '..')
     spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit' })
 
-    const shrineConfig = import(`${process.cwd()}/shrine.config.js`)
+    const shrineConfig = await import(`${process.cwd()}/shrine.config.js`)
     openUrl(`http://localhost:${shrineConfig.port}`, { wait: true })
-    process.exit(0)
   })
   subprocess.on('error', (error) => {
     console.log(error)
@@ -33,13 +32,14 @@ async function start (pkgName) {
 }
 
 export default function devConsole (cli) {
-  const pkgNames = getPkgNames(process.cwd())
-  if (pkgNames.length === 0) {
-    return console.log('package 数量为0，请先创建应用')
-  }
   cli
     .command('start [name]', 'desc')
     .action((name) => {
+      const pkgNames = getPkgNames(process.cwd())
+      if (pkgNames.length === 0) {
+        return console.log('package 数量为0，请先创建应用')
+      }
+      
       if (name) {
         return start(name)
       }
