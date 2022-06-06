@@ -2,10 +2,10 @@
   "name": "@hakushin/utils",
   "version": "0.0.1",
   "description": "",
-  "main": "dist/utils.js",
+  "main": "dist/index.js",
   "scripts": {
-    "dev": "rollup -c  --watch",
-    "build": "rollup -c"
+    "dev": "tsc  -w",
+    "build": "tsc"
   },
   "author": "hakushinring",
   "devDependencies": {

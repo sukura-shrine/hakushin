@@ -4,6 +4,7 @@ import pkg from '../package.json'
 import init from './init'
 import createApp from './create-app'
 import devServer from '@hakushin/dev-server'
+import devConsole from '@hakushin/dev-console'
 
 const cli = cac('haku')
 
@@ -24,7 +25,9 @@ cli
     await createApp(name)
   })
 
+
 devServer(cli)
+devConsole(cli)
 
 cli.help()
 cli.version(pkg.version)

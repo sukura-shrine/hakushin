@@ -3,7 +3,7 @@ import path from 'path'
 import process from 'process'
 import cp from 'child_process'
 import chalk from 'chalk'
-import {  mergePackageJson, fetchGitFileTree } from '@hakushin/utils'
+import { mergePackageJson, fetchGitFileTree } from '@hakushin/utils'
 
 function writeTreeSync (tree, dir) {
   tree.forEach(item => {

@@ -10,10 +10,9 @@
     "baseUrl": ".",
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "."
+    "declarationDir": "dist"
   },
-  "exclude": [
-    "node_modules/**",
-    "dist"
+  "files": [
+    "src/index.ts"
   ]
 }

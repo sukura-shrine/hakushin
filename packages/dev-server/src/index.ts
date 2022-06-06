@@ -1,12 +1,11 @@
 import process from 'process'
-import cp from 'child_process'
-import openUrl from 'open'
+import spawn from 'cross-spawn'
 import inquirer from 'inquirer'
 import { getPkgNames } from './utils'
 
 function start (pkgName) {
-  cp.execSync('pnpm start', { cwd: `packages/${pkgName}`, stdio: 'inherit' })
-  openUrl('https://www.baidu.com')
+  spawn('pnpm', ['start'], { cwd: `packages/${pkgName}`, stdio: 'inherit' })
+  // openUrl('http://localhost:${}')
 }
 
 export default function devServer (cli) {
@@ -15,7 +14,7 @@ export default function devServer (cli) {
     return console.log('package 数量为0，请先创建应用')
   }
   cli
-    .command('start [name]', 'desc')
+    .command('micro [name]', 'desc')
     .action((name) => {
       if (name) {
         return start(name)

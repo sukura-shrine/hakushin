@@ -2,15 +2,16 @@
   "name": "@hakushin/cli",
   "version": "0.0.1",
   "description": "",
+  "type": "module",
   "bin": {
     "haku": "bin/index.js"
   },
   "scripts": {
-    "dev": "rollup -c --watch",
     "build": "tsc"
   },
   "author": "hakushinring",
   "dependencies": {
+    "@hakushin/dev-console": "workspace:^0.0.1",
     "@hakushin/dev-server": "workspace:^0.0.1",
     "@hakushin/utils": "workspace:^0.0.1",
     "cac": "^6.7.12",
