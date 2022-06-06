@@ -1,11 +1,12 @@
 import process from 'process'
 import spawn from 'cross-spawn'
 import inquirer from 'inquirer'
-import { getPkgNames } from './utils'
+import { getPkgNames } from './utils.js'
 
 function start (pkgName) {
   spawn('pnpm', ['start'], { cwd: `packages/${pkgName}`, stdio: 'inherit' })
   // openUrl('http://localhost:${}')
+  process.exit(0)
 }
 
 export default function devServer (cli) {

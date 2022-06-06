@@ -6,11 +6,8 @@ import spawn from 'cross-spawn'
 import chalk from 'chalk'
 import openUrl from 'open'
 import inquirer from 'inquirer'
-import { createRequire } from 'module'
 
-import { getPkgNames } from './utils'
-const require = createRequire(import.meta.url)
-
+import { getPkgNames } from './utils.js'
 
 async function start (pkgName) {
   const subprocess = spawn('haku', ['micro', pkgName])
@@ -23,10 +20,12 @@ async function start (pkgName) {
     console.log()
     console.log('  > local:', chalk.cyan(`localhost:${port}`))
 
-    spawn('pnpm', ['start'], { cwd: path.join(__dirname, '../'), stdio: 'inherit' })
+    const dirname = path.join(new URL('.', import.meta.url).pathname, '..')
+    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit' })
 
-    const shrineConfig = require(`${process.cwd()}/shrine.config.js`)
+    const shrineConfig = import(`${process.cwd()}/shrine.config.js`)
     openUrl(`http://localhost:${shrineConfig.port}`, { wait: true })
+    process.exit(0)
   })
   subprocess.on('error', (error) => {
     console.log(error)

@@ -1,10 +1,15 @@
 import process from 'process'
+import path from 'path'
 import cac from 'cac'
-import pkg from '../package.json'
-import init from './init'
-import createApp from './create-app'
+// import pkg from '../package.json'
+import init from './init.js'
+import createApp from './create-app.js'
 import devServer from '@hakushin/dev-server'
 import devConsole from '@hakushin/dev-console'
+import { createRequire } from 'module'
+const require = createRequire(import.meta.url)
+
+const pkg = require(path.resolve('./package.json'))
 
 const cli = cac('haku')
 

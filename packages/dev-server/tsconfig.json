@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "module": "CommonJS",
+    "module": "es2020",
     "alwaysStrict": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,
