@@ -27,9 +27,11 @@ async function main () {
     })
 
   cli
-    .command('create <name>', '初始化子应用')
-    .action(async (name) => {
-      await createApp(name)
+    .command('create <name>', '创建子应用')
+    .option('-r, --ref <name>', '模板的branch名称')
+    .action(async (name, options) => {
+      const { ref } = options
+      await createApp(name, ref)
     })
 
 

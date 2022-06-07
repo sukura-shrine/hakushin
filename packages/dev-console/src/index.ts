@@ -38,7 +38,7 @@ export default function devConsole (cli) {
     .action((name) => {
       const pkgNames = getPkgNames(process.cwd())
       if (pkgNames.length === 0) {
-        return console.log('package 数量为0，请先创建应用')
+        return console.log('dev-console: package 数量为0，请先创建应用')
       }
 
       if (name) {

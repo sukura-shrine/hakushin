@@ -1,17 +1,23 @@
 import fs from 'fs'
-import cp from 'child_process'
+import chalk from 'chalk'
+import { fetchGitFileTree, writeFileTreeSync } from '@hakushin/utils'
 
 export default async function init (projectName: string) {
   if (fs.existsSync(projectName)) {
     throw new Error(`${projectName} 文件夹已经存在`)
   }
 
-  const args = ['clone', '-b', 'main', `https://github.com/sukura-shrine/app-template.git`, projectName]
-  const child = cp.spawn('git', args, { stdio: 'inherit' })
+  console.log('git repo: sukura-shrine/app-template')
+  console.log(' >branch: main')
+  console.log(chalk.yellow(' >download start'))
+  console.log()
 
-  child.on('close', (code: number) => {
-    if (code !== 0) {
-      return console.error(`INIT ERROR: code ${code}`)
-    }
-  })
+  const tree = await fetchGitFileTree('main')
+
+  fs.mkdirSync(projectName)
+  writeFileTreeSync(tree, projectName)
+
+  console.log(chalk.yellow('  >download end'))
+  console.log()
+  console.log('你现在可以使用 haku create [name] 创建子应用')
 }

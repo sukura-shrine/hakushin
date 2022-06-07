@@ -12,12 +12,12 @@
     "rootDir": "src",
     "outDir": "dist",
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "types": [
+      "node"
+    ]
   },
   "files": [
     "./src/index.ts"
-  ],
-  "exclude": [
-    "package.json"
   ]
 }

@@ -1,4 +1,5 @@
-import mergePackageJson from './merge-pkgjson'
-import fetchGitFileTree from './fetch-git-files'
+import mergePackageJson from './merge-pkgjson.js'
+import fetchGitFileTree from './fetch-git-files.js'
+import writeFileTreeSync from './write-file-tree-sync.js'
 
-export { mergePackageJson, fetchGitFileTree }
+export { mergePackageJson, fetchGitFileTree, writeFileTreeSync }

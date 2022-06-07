@@ -1,15 +1,9 @@
 import { Octokit } from 'octokit'
 import path from 'path'
+import { TreeNode } from './index.d'
 
 const octokit = new Octokit({})
 
-type TreeNode = {
-  type: string
-  name: string
-  dir: string
-  content?: string
-  children?: TreeNode[]
-}
 async function fetchTree (url: string, dir = '/'): Promise<TreeNode[]> {
   const { data } = await octokit.request(`GET ${url}`)
   const list = []
@@ -31,7 +25,7 @@ async function fetchFile (url: string): Promise<string> {
   return Buffer.from(data.content, 'base64').toString('utf-8')
 }
 
-export default async function fetchGitFileTree (): Promise<TreeNode[]> {
-  const url = '/repos/sukura-shrine/app-template/contents?ref=mobile'
+export default async function fetchGitFileTree (branch: string = 'main'): Promise<TreeNode[]> {
+  const url = `/repos/sukura-shrine/app-template/contents?ref=${branch}`
   return await fetchTree(url)
 }

@@ -3,21 +3,9 @@ import path from 'path'
 import process from 'process'
 import cp from 'child_process'
 import chalk from 'chalk'
-import { mergePackageJson, fetchGitFileTree } from '@hakushin/utils'
+import { mergePackageJson, fetchGitFileTree, writeFileTreeSync } from '@hakushin/utils'
 
-function writeTreeSync (tree, dir) {
-  tree.forEach(item => {
-    const thePathName = path.join(dir, item.name)
-    if (item.type === 'dir') {
-      fs.mkdirSync(thePathName)
-      writeTreeSync(item.children, thePathName)
-    } else if (item.type === 'file') {
-      fs.writeFileSync(thePathName, item.content)
-    }
-  })
-}
-
-export default async function create (appName: string) {
+export default async function create (appName: string, ref: string = 'pc') {
   let driname = process.cwd().replace(/packages$/, '')
 
   if (!/packages$/.test(driname)) {
@@ -33,16 +21,16 @@ export default async function create (appName: string) {
   }
 
   console.log('git repo: sukura-shrine/app-template')
-  console.log('branch: mobile')
-  console.log(chalk.yellow('download start'))
+  console.log(` >branch: ${ref}`)
+  console.log(chalk.yellow(' >download start'))
   console.log()
 
-  const tree = await fetchGitFileTree()
+  const tree = await fetchGitFileTree(ref)
 
   fs.mkdirSync(projectName)
-  writeTreeSync(tree, projectName)
+  writeFileTreeSync(tree, projectName)
 
-  console.log(chalk.yellow('download end'))
+  console.log(chalk.yellow(' >download end'))
   mergePackageJson(driname, appName)
 
   cp.execSync('pnpm install', { cwd: projectName, stdio: 'inherit' })

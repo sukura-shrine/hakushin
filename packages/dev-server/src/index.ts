@@ -13,7 +13,7 @@ export default function devServer (cli) {
     .action((name) => {
       const pkgNames = getPkgNames(process.cwd())
       if (pkgNames.length === 0) {
-        return console.log('package 数量为0，请先创建应用')
+        return console.log('dev-server: package 数量为0，请先创建应用')
       }
 
       if (name) {
