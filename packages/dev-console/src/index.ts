@@ -7,11 +7,19 @@ import chalk from 'chalk'
 import openUrl from 'open'
 import inquirer from 'inquirer'
 
-import { getPkgNames } from './utils.js'
+import { getPkgNames, getClientPackagesInfo } from './utils.js'
 
 async function start (pkgName) {
   const subprocess = spawn('haku', ['micro', pkgName])
   subprocess.on('spawn', async () => {
+    const apps = await getClientPackagesInfo(process.cwd())
+    const appsInfo = JSON.stringify(apps, null, 2)
+    const cachePath = path.join(process.cwd(), 'node_modules/@hakushin')
+    if (!fs.existsSync(cachePath)) {
+      fs.mkdirSync(cachePath)
+    }
+    fs.writeFileSync(cachePath, appsInfo, { flag: 'a' })
+
     const shrineConfig = (await import(`${process.cwd()}/shrine.config.js`)).default
 
     const microPkg = fs.readFileSync(`packages/${pkgName}/package.json`).toString()

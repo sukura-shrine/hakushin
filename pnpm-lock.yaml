@@ -53,6 +53,7 @@ importers:
       cross-spawn: ^7.0.3
       inquirer: ^8.2.4
       open: ^8.4.0
+      qiankun: ^2.7.2
       react: ^18.1.0
       react-dom: ^18.1.0
       tslib: 2.4.0
@@ -64,6 +65,7 @@ importers:
       cross-spawn: 7.0.3
       inquirer: 8.2.4
       open: 8.4.0
+      qiankun: 2.7.2
       react: 18.1.0
       react-dom: 18.1.0_react@18.1.0
     devDependencies:
@@ -338,6 +340,13 @@ packages:
       '@babel/plugin-syntax-jsx': 7.17.12_@babel+core@7.18.2
       '@babel/types': 7.18.4
     dev: true
+
+  /@babel/runtime/7.18.3:
+    resolution: {integrity: sha512-38Y8f7YUhce/K7RMwTp7m0uCumpv9hZkitCbBClqQIow1qSbCvGkcegKOXpEWCQLfWmevgRiWokZ1GkpfhbZug==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.9
+    dev: false
 
   /@babel/template/7.16.7:
     resolution: {integrity: sha512-I8j/x8kHUrbYRTUxXrrMbfCa7jxkE7tZre39x3kjr9hvI82cK1FfqLygotcWN5kdPGWcLdWMHpSBavse5tWw3w==}
@@ -1764,6 +1773,12 @@ packages:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
     dev: false
 
+  /import-html-entry/1.12.0:
+    resolution: {integrity: sha512-wloMEMwupKJ8DWvKsEzJTXhHVieEH8ylu9ebeQg7T9JUsPTo0Zwa1EkuSKgKJvOiA2MxAFkeYYvd/E2pKiFtWQ==}
+    dependencies:
+      '@babel/runtime': 7.18.3
+    dev: false
+
   /indent-string/4.0.0:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
     engines: {node: '>=8'}
@@ -2405,6 +2420,16 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /qiankun/2.7.2:
+    resolution: {integrity: sha512-hpv0orcovqQsUCO1jAffMH6x3XQ8Kf++R00+q/R1f3SpUgERPyT9Q64K02pFthsNo+SWnK5c7YqteGdsocp2Lg==}
+    dependencies:
+      '@babel/runtime': 7.18.3
+      import-html-entry: 1.12.0
+      lodash: 4.17.21
+      single-spa: 5.9.4
+      tslib: 1.14.1
+    dev: false
+
   /query-string/5.1.1:
     resolution: {integrity: sha512-gjWOsm2SoGlgLEdAGt7a6slVOk9mGiXmPFMqrEhLQ68rhQuBnpfs3+EmlvqKyxnCo9/PPlF+9MtY02S1aFg+Jw==}
     engines: {node: '>=0.10.0'}
@@ -2468,6 +2493,10 @@ packages:
       inherits: 2.0.4
       string_decoder: 1.1.1
       util-deprecate: 1.0.2
+    dev: false
+
+  /regenerator-runtime/0.13.9:
+    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
     dev: false
 
   /resolve/1.22.0:
@@ -2625,6 +2654,10 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+    dev: false
+
+  /single-spa/5.9.4:
+    resolution: {integrity: sha512-QkEoh0AzGuU82qnbUUk0ydF78QbU5wMKqKKJn7uUQfBiOYlRQEfIOpLM4m23Sab+kTOLI1kbYhYeiQ7fX5KVVw==}
     dev: false
 
   /sort-keys-length/1.0.1:
@@ -2803,6 +2836,10 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       escape-string-regexp: 1.0.5
+    dev: false
+
+  /tslib/1.14.1:
+    resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: false
 
   /tslib/2.4.0:
