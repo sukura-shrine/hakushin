@@ -11,10 +11,13 @@
   },
   "author": "hakushinring",
   "dependencies": {
+    "@hakushin/utils": "workspace:^0.0.1",
+    "@koa/router": "^10.1.1",
     "cac": "^6.7.12",
     "chalk": "^4",
     "cross-spawn": "^7.0.3",
     "inquirer": "^8.2.4",
+    "koa": "^2.13.4",
     "open": "^8.4.0",
     "qiankun": "^2.7.2",
     "react": "^18.1.0",

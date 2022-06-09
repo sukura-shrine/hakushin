@@ -7,19 +7,25 @@ import chalk from 'chalk'
 import openUrl from 'open'
 import inquirer from 'inquirer'
 
-import { getPkgNames, getClientPackagesInfo } from './utils.js'
+import { clientPackagesInfo } from '@hakushin/utils'
+import { getPkgNames } from './utils.js'
+import './service.js'
+
+async function writeCacheFile () {
+  const apps = await clientPackagesInfo(process.cwd())
+  const appsInfo = JSON.stringify(apps, null, 2)
+  const cachePath = path.join(process.cwd(), 'node_modules/@hakushin')
+  if (!fs.existsSync(cachePath)) {
+    fs.mkdirSync(cachePath)
+  }
+  fs.writeFileSync(path.join(cachePath, 'app.cache.json'), appsInfo, { flag: 'w' })
+}
 
 async function start (pkgName) {
   const subprocess = spawn('haku', ['micro', pkgName])
-  subprocess.on('spawn', async () => {
-    const apps = await getClientPackagesInfo(process.cwd())
-    const appsInfo = JSON.stringify(apps, null, 2)
-    const cachePath = path.join(process.cwd(), 'node_modules/@hakushin')
-    if (!fs.existsSync(cachePath)) {
-      fs.mkdirSync(cachePath)
-    }
-    fs.writeFileSync(cachePath, appsInfo, { flag: 'a' })
 
+  subprocess.on('spawn', async () => {
+    await writeCacheFile()
     const shrineConfig = (await import(`${process.cwd()}/shrine.config.js`)).default
 
     const microPkg = fs.readFileSync(`packages/${pkgName}/package.json`).toString()
@@ -35,6 +41,7 @@ async function start (pkgName) {
 
     openUrl(`http://localhost:${shrineConfig.port}`, { wait: true })
   })
+
   subprocess.on('error', (error) => {
     console.log(error)
   })

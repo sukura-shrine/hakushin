@@ -4,9 +4,11 @@ const server = {
   port: 3999,
 }
 
+const reactPlugin = react().filter(item => item.name !== 'vite:react-refresh')
+
 export default defineConfig({
   plugins: [
-    react(),
+    reactPlugin,
   ],
   optimizeDeps: {
   },
