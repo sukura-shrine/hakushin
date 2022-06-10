@@ -10,7 +10,7 @@
   },
   "author": "hakushinring",
   "dependencies": {
-    "@hakushin/utils": "workspace:^0.0.1",
+    "@hakushin/utils": "workspace:^0.0.3",
     "cac": "^6.7.12",
     "cross-spawn": "^7.0.3",
     "inquirer": "^8.2.4",
