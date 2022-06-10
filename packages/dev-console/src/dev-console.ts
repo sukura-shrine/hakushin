@@ -1,7 +1,7 @@
 import { registerMicroApps, start } from 'qiankun'
 
 async function main () {
-  const res = await fetch('//localhost:3900/api/appsInfo')
+  const res = await fetch('//localhost:3201/api/appsInfo')
   const { data } = await res.json()
   const list = data.map(item => {
     const { name, hakushin } = item

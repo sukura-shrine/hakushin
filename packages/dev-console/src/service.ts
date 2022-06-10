@@ -3,12 +3,13 @@ import http from 'http'
 import Koa from 'koa'
 import Router from '@koa/router'
 import { clientPackagesInfo } from '@hakushin/utils'
+import viteConfig from '../vite.config.js'
 
 const app = new Koa()
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Credentials', true)
-  ctx.set('Access-Control-Allow-Origin', 'http://localhost:3999')
+  ctx.set('Access-Control-Allow-Origin', `http://localhost:${viteConfig.server.port}`)
   await next()
 })
 
@@ -21,5 +22,5 @@ router.get('/api/appsInfo', async (ctx, next) => {
 
 app.use(router.routes())
 
-console.log('listting 3900')
-http.createServer(app.callback()).listen(3900)
+console.log('listting 3201')
+http.createServer(app.callback()).listen(3201)
