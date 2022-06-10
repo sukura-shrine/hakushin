@@ -68,3 +68,4 @@ Commands:
 另一个问题是市面上大多cli的功能和模板都写在内部，我希望模板是可配置的，用户可以接入自己的模板；功能是灵活可配置的，用户可在此基础上定制而不受限于cli本身
 
 ## 后续
+[开发计划](https://github.com/sukura-shrine/hakushin/issues/2)
