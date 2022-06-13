@@ -8,7 +8,6 @@ import openUrl from 'open'
 import inquirer from 'inquirer'
 
 import { clientPackagesInfo } from '@hakushin/utils'
-import { getPkgNames } from './utils.js'
 import './service.js'
 
 async function writeCacheFile () {
@@ -47,27 +46,33 @@ async function start (pkgName) {
   })
 }
 
-export default function devConsole (cli) {
-  cli
-    .command('start [name]', 'desc')
-    .action((name) => {
-      const pkgNames = getPkgNames(process.cwd())
-      if (pkgNames.length === 0) {
-        return console.log('dev-console: package 数量为0，请先创建应用')
-      }
+interface Options {
+}
 
-      if (name) {
-        return start(name)
-      }
-      inquirer.prompt([
-        {
-          type: 'list',
-          name: 'pkgName',
-          message: '选择要启动的应用',
-          choices: pkgNames,
-        },
-      ]).then(({ pkgName }) => {
-        start(pkgName)
+export default function devConsole (options: Options) {
+  return (cli) => {
+    cli
+      .command('start [name]', 'desc')
+      .action(async (name) => {
+        const pkgNames = (await clientPackagesInfo(process.cwd())).map(item => item.name)
+        if (pkgNames.length === 0) {
+          return console.log('dev-console: package 数量为0，请先创建应用')
+        }
+
+        if (name) {
+          return start(name)
+        }
+        inquirer.prompt([
+          {
+            type: 'list',
+            name: 'pkgName',
+            message: '选择要启动的应用',
+            choices: pkgNames,
+          },
+        ]).then(({ pkgName }) => {
+          start(pkgName)
+        })
       })
-    })
+  }
+
 }
