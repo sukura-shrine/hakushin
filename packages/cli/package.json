@@ -1,5 +1,5 @@
 {
-  "name": "@hakushin/cli",
+  "name": "@hakushin/create-app",
   "version": "0.0.3",
   "description": "",
   "type": "module",
@@ -11,8 +11,6 @@
   },
   "author": "hakushinring",
   "dependencies": {
-    "@hakushin/dev-console": "workspace:^0.0.2",
-    "@hakushin/dev-server": "workspace:^0.0.1",
     "@hakushin/utils": "workspace:^0.0.3",
     "cac": "^6.7.12",
     "chalk": "^4",

@@ -8,7 +8,7 @@ import openUrl from 'open'
 import inquirer from 'inquirer'
 
 import { clientPackagesInfo } from '@hakushin/utils'
-import './service.js'
+import service from './service.js'
 
 async function writeCacheFile () {
   const apps = await clientPackagesInfo(process.cwd())
@@ -70,6 +70,7 @@ export default function devConsole (options: Options) {
             choices: pkgNames,
           },
         ]).then(({ pkgName }) => {
+          service()
           start(pkgName)
         })
       })

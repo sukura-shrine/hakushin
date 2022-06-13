@@ -22,5 +22,7 @@ router.get('/api/appsInfo', async (ctx, next) => {
 
 app.use(router.routes())
 
-console.log('listting 3201')
-http.createServer(app.callback()).listen(3201)
+export default function service () {
+  console.log('listting 3201')
+  http.createServer(app.callback()).listen(3201)
+}

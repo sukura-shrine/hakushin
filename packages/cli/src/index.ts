@@ -5,18 +5,17 @@ import process from 'process'
 import cac from 'cac'
 import init from './init.js'
 import createApp from './create-app.js'
-import devServer from '@hakushin/dev-server'
-import devConsole from '@hakushin/dev-console'
+import { clientConfig } from '@hakushin/utils'
 
 async function main () {
-  const dirname = path.join(new URL('.', import.meta.url).pathname, '../package.json')
-  const pkg = fs.readFileSync(dirname).toString()
+  const selfPkgPath = path.join(new URL('.', import.meta.url).pathname, '../package.json')
+  const pkg = fs.readFileSync(selfPkgPath).toString()
   const { version } = JSON.parse(pkg)
 
   const cli = cac('haku')
 
   cli
-    .command('init [name]', '初始化项目')
+    .command('[name]', '初始化项目')
     .action(async (name) => {
       let projectName = name
       if (!projectName) {
@@ -34,9 +33,10 @@ async function main () {
       await createApp(name, ref)
     })
 
-
-  devServer(cli)
-  devConsole(cli)
+  const shrineConfig = await clientConfig()
+  shrineConfig.plugins?.forEach(plugin => {
+    plugin(cli)
+  })
 
   cli.help()
   cli.version(version)
