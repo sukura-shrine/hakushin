@@ -1,5 +1,5 @@
 {
-  "name": "@hakushin/dev-server",
+  "name": "@hakushin/plugin-dev-server",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
