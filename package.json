@@ -4,7 +4,7 @@
   "description": "micro app tools",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "pnpm -r publish --access public"
   },
   "repository": {
     "type": "git",
