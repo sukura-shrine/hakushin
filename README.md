@@ -8,14 +8,31 @@
 ```
 pnpm create @hakushin/app my_project
 cd my_project
-pnpm create app1
+pnpm cp app1
+```
+推荐添加插件
+```
+pnpm add -Dw @hakushin/plugin-dev-server @hakushin/plugin-dev-console
+```
+修改shrine.config.js，导入插件
+```
+import devServer from '@hakushin/plugin-dev-server'
+import devConsole from '@hakushin/plugin-dev-console'
+
+export default {
+  type: 'pc',
+  port: 3200,
+  plugins: [
+    devServer(),
+    devConsole(),
+  ],
+}
+
+```
+执行命令
+```
 pnpm start
 ```
-此时浏览器应该默认打开`//localhost:3200/app1`  
-
-如果有多个package，只需要`//localhost:3200/package_name`即可打开对应应用  
-
-或者你可以通过`//localhost:应用端口号`访问子应用，具体可以查看package_name/package.json, hakushin字段定义
 
 ## 配置
 
@@ -29,16 +46,11 @@ pnpm start
 ```
 
 ### shrine.config.js
-根目录下默认添加
 ```
-import devServer from '@hakushin/plugin-dev-server'
-import devConsole from '@hakushin/plugin-dev-console'
 {
+  type: 'pc', 项目类型
   port: 3100, //开发环境端口号, 存在devConsole时生效，子应用根据此端口号+100开始分配
-  plugins: [
-    devServer(),
-    devConsole(),
-  ]
+  plugins: []
 }
 ```
 
@@ -47,7 +59,7 @@ import devConsole from '@hakushin/plugin-dev-console'
 Usage:
   $ haku <command> [options]
 Commands:
-  init <name>    初始化项目
+  <name>    初始化项目
   create <name>  创建子应用
     -r, --ref <name>  模板的branch名称
 ```
@@ -60,7 +72,7 @@ Commands:
 必须搭配`@hakushin/plugin-dev-server`一同使用  
 存在此插件时，cli 新增命令 `haku start [name]`， 可以在根目录启动子应用，并且通过`固定端口号/应用名`的方式访问子应用。因为是通过统一端口对外访问，开发环境下可以方便的成为其他项目的微应用引入
 
-### @hakushin/plugin-build
+### @hakushin/plugin-build（尚未实现）
 存在此插件时，cli 新增命令 `haku build [name]`，提供打包行为，默认打包文件放到项目根目录的`/dist`文件夹
 
 ## 设计理念
