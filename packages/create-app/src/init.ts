@@ -1,5 +1,8 @@
 import fs from 'fs'
+import path from 'path'
+import process from 'process'
 import chalk from 'chalk'
+import spawn from 'cross-spawn'
 import { fetchGitFileTree, writeFileTreeSync } from '@hakushin/utils'
 
 export default async function init (projectName: string) {
@@ -19,5 +22,9 @@ export default async function init (projectName: string) {
 
   console.log(chalk.yellow('  >download end'))
   console.log()
-  console.log('你现在可以使用 haku create [name] 创建子应用')
+
+  spawn('pnpm', ['install'], { cwd: path.join(process.cwd(), projectName) })
+
+  console.log(`cd ${projectName}`)
+  console.log(`pnpm cp [name] 创建子应用`)
 }

@@ -36,7 +36,8 @@ async function start (pkgName) {
     console.log('  > local:', chalk.cyan(`localhost:${port}`))
 
     const dirname = path.join(new URL('.', import.meta.url).pathname, '..')
-    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit', env: { port: String(shrineConfig.port) } })
+    const env = { ...process.env, SHRINE_PORT: String(shrineConfig.port) }
+    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit', env })
 
     openUrl(`http://localhost:${shrineConfig.port}`, { wait: true })
   })

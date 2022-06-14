@@ -33,11 +33,13 @@ async function main () {
       await createApp(name, ref)
     })
 
-  const shrineConfig = await clientConfig()
-  shrineConfig.plugins?.forEach(plugin => {
-    plugin(cli)
-  })
-
+  try {
+    const shrineConfig = await clientConfig()
+    shrineConfig.plugins?.forEach(plugin => {
+      plugin(cli)
+    })
+  } catch (error) {
+  }
   cli.help()
   cli.version(version)
   cli.parse()
