@@ -20,12 +20,11 @@ async function writeCacheFile () {
   fs.writeFileSync(path.join(cachePath, 'app.cache.json'), appsInfo, { flag: 'w' })
 }
 
-async function start (pkgName) {
+async function start (pkgName, shrineConfig?) {
   const subprocess = spawn('haku', ['micro', pkgName])
 
   subprocess.on('spawn', async () => {
     await writeCacheFile()
-    const shrineConfig = await clientConfig()
 
     const microPkg = fs.readFileSync(`packages/${pkgName}/package.json`).toString()
     const { hakushin: { port } } = JSON.parse(microPkg)
@@ -39,7 +38,7 @@ async function start (pkgName) {
     const env = { ...process.env, SHRINE_PORT: String(shrineConfig.port) }
     spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit', env })
 
-    openUrl(`http://localhost:${shrineConfig.port}`, { wait: true })
+    openUrl(`http://localhost:${shrineConfig.port}/${pkgName}`, { wait: true })
   })
 
   subprocess.on('error', (error) => {
@@ -71,8 +70,10 @@ export default function devConsole (options: Options) {
             choices: pkgNames,
           },
         ]).then(({ pkgName }) => {
-          service()
-          start(pkgName)
+          clientConfig().then((config) => {
+            service(config)
+            start(pkgName, config)
+          })
         })
       })
   }
