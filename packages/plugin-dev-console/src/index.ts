@@ -7,7 +7,7 @@ import chalk from 'chalk'
 import openUrl from 'open'
 import inquirer from 'inquirer'
 
-import { clientPackagesInfo } from '@hakushin/utils'
+import { clientPackagesInfo, clientConfig } from '@hakushin/utils'
 import service from './service.js'
 
 async function writeCacheFile () {
@@ -25,7 +25,7 @@ async function start (pkgName) {
 
   subprocess.on('spawn', async () => {
     await writeCacheFile()
-    const shrineConfig = (await import(`${process.cwd()}/shrine.config.js`)).default
+    const shrineConfig = await clientConfig()
 
     const microPkg = fs.readFileSync(`packages/${pkgName}/package.json`).toString()
     const { hakushin: { port } } = JSON.parse(microPkg)
@@ -36,7 +36,7 @@ async function start (pkgName) {
     console.log('  > local:', chalk.cyan(`localhost:${port}`))
 
     const dirname = path.join(new URL('.', import.meta.url).pathname, '..')
-    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit' })
+    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit', env: { port: String(shrineConfig.port) } })
 
     openUrl(`http://localhost:${shrineConfig.port}`, { wait: true })
   })

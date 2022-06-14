@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+
 const server = {
-  port: 3200,
+  port: process.env.port,
 }
 
 const reactPlugin = react().filter(item => item.name !== 'vite:react-refresh')
