@@ -4,7 +4,6 @@
   "description": "micro app tools",
   "private": true,
   "scripts": {
-    "publish": "pnpm -r publish --access public"
   },
   "repository": {
     "type": "git",
