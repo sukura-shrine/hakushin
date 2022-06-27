@@ -1,4 +1,4 @@
-name: Changesets
+name: publish
 on:
   push:
     branches:
@@ -19,22 +19,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-
       - name: install pnpm
         run: npm i pnpm@latest -g
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
       - name: setup pnpm config
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
       - name: install dependencies
         run: pnpm install
-
-      - name: Create Release Pull Request or Publish to npm
+      - name: create and publish versions
         uses: changesets/action@v1
         with:
           commit: "chore: update versions"
           title: "chore: update versions"
+          publish: pnpm -r publish --access public --no-git-checks
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        run: pnpm -r publish --access public
+
