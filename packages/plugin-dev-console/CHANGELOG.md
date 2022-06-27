@@ -1,5 +1,13 @@
 # @hakushin/plugin-dev-console
 
+## 0.0.9
+
+### Patch Changes
+
+- 9eb28d5: chore: update version
+- Updated dependencies [9eb28d5]
+  - @hakushin/utils@0.0.6
+
 ## 0.0.8
 
 ### Patch Changes
