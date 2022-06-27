@@ -4,11 +4,10 @@
   "description": "micro app tools",
   "private": true,
   "scripts": {
-    "publish": "pnpm -r publish --access public"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sukura-shrine/miko.git"
+    "url": "git+https://github.com/sukura-shrine/hakushin.git"
   },
   "author": "hakushinring",
   "husky": {
@@ -17,7 +16,10 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/sukura-shrine/miko/issues"
+    "url": "https://github.com/sukura-shrine/hakushin/issues"
   },
-  "homepage": "https://github.com/sukura-shrine/miko#readme"
+  "homepage": "https://github.com/sukura-shrine/hakushin#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.23.0"
+  }
 }
