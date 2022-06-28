@@ -1,5 +1,11 @@
 # @hakushin/create-app
 
+## 0.0.11
+
+### Patch Changes
+
+- 70b3b39: chore: version update
+
 ## 0.0.10
 
 ### Patch Changes
