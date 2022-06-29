@@ -24,5 +24,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "homepage": "https://github.com/sukura-shrine/hakushin#readme"
 }
