@@ -1,5 +1,11 @@
 # @hakushin/create-app
 
+## 0.0.12
+
+### Patch Changes
+
+- 0976540: chore: update readme
+
 ## 0.0.11
 
 ### Patch Changes
