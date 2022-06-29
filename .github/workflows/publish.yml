@@ -11,28 +11,35 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code repository
+      - name: Checkout code repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - name: setup node.js
+      - name: Setup node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: install pnpm
+
+      - name: Install pnpm
         run: npm i pnpm@latest -g
-      - name: Setup npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-      - name: setup pnpm config
+      - name: Setup pnpm config
         run: pnpm config set store-dir $PNPM_CACHE_FOLDER
-      - name: install dependencies
-        run: pnpm install
-      - name: create and publish versions
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
         uses: changesets/action@v1
         with:
           commit: "chore: update versions"
           title: "chore: update versions"
-          publish: pnpm -r publish --access public --no-git-checks
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SECRET_NAME }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Set npm config
+        run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: pnpm -r publish --access public --no-git-checks
 
