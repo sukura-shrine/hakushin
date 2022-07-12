@@ -4,6 +4,8 @@
   "description": "micro app tools",
   "private": true,
   "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   },
   "homepage": "https://github.com/sukura-shrine/hakushin#readme",
   "devDependencies": {
-    "@changesets/cli": "^2.23.0"
+    "@changesets/cli": "^2.23.0",
+    "vitest": "^0.18.0"
   }
 }
