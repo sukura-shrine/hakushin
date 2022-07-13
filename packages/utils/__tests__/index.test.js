@@ -1,4 +1,4 @@
-import { describe, expect, test, vi } from 'vitest'
+import { describe, test, vi } from 'vitest'
 import clientPakcagesInfo from '../src/client-packages-info'
 
 const createPromiseIterator = (items) => {
@@ -32,21 +32,19 @@ const mockFsData = [
 vi.mock('fs/promises', () => {
   return {
     default: {
-      fsPromises: vi.fn()
+      opendir: vi.fn(async (dir) => {
+        const list = mockFsData.map(item => createFsDirent(item))
+        return createPromiseIterator(list)
+      }),
+      readFile: vi.fn(async (dir, options) => {
+        return JSON.stringify({ name: dir })
+      }),
     },
-    opendir: vi.fn(async (dir) => {
-      const list = mockFsData.map(item => createFsDirent(item))
-      return createPromiseIterator(list)
-    }),
-    readFile: vi.fn(async (dir, options) => {
-      return { name: dir }
-    }),
   }
 })
 
-describe('person', () => {
-  test('person is defined', () => {
+describe('utils', () => {
+  test('clientPakcagesInfo', () => {
     clientPakcagesInfo('/')
-    // expect(person).toBeDefined()
   })
 })

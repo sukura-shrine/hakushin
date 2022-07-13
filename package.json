@@ -23,6 +23,7 @@
   "homepage": "https://github.com/sukura-shrine/hakushin#readme",
   "devDependencies": {
     "@changesets/cli": "^2.23.0",
+    "c8": "^7.11.3",
     "vitest": "^0.18.0"
   }
 }
