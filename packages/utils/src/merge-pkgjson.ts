@@ -26,10 +26,12 @@ function gitUserInfo (dirname: string) {
   return { name, email }
 }
 
-function generatePackageConfig (dirname: string) {
+function generatePackageConfig (dirname: string, basePort?: number) {
   const theDir = fs.opendirSync(dirname)
 
   const portList = []
+  basePort && portList.push(basePort)
+
   while (true) {
     const dirent = theDir.readSync()
     if (dirent === null) {
@@ -53,14 +55,15 @@ function generatePackageConfig (dirname: string) {
   }
 }
 
-export default function mergePackageJson (dirname: string, appName: string) {
+export default async function mergePackageJson (dirname: string, appName: string, basePort?: number) {
   const projectName = path.join(dirname, appName)
+
   try {
     const { name, email } = gitUserInfo(dirname)
     const pkgPath = path.join(projectName, 'package.json')
     let pkgJson = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'))
 
-    const hakushin = generatePackageConfig(dirname)
+    const hakushin = generatePackageConfig(dirname, basePort)
     pkgJson = { ...pkgJson, name: appName, author: name, email, hakushin }
     fs.writeFileSync(pkgPath, JSON.stringify(pkgJson, null, 2))
   } catch (error: any) {

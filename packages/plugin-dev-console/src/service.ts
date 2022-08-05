@@ -6,14 +6,6 @@ import { clientPackagesInfo } from '@hakushin/utils'
 
 const app = new Koa()
 
-let config = {}
-
-app.use(async (ctx, next) => {
-  ctx.set('Access-Control-Allow-Credentials', true)
-  ctx.set('Access-Control-Allow-Origin', `http://localhost:${config.port}`)
-  await next()
-})
-
 const router = new Router()
 router.get('/api/appsInfo', async (ctx, next) => {
   await next()
@@ -24,7 +16,13 @@ router.get('/api/appsInfo', async (ctx, next) => {
 app.use(router.routes())
 
 export default function service (shrineConfig) {
-  config = shrineConfig
-  console.log('listting 3299')
-  http.createServer(app.callback()).listen(3299)
+  const port = shrineConfig?.port ? Number(shrineConfig.port) + 99 : 3299
+  app.use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Credentials', true)
+    ctx.set('Access-Control-Allow-Origin', `http://localhost:${port}`)
+    await next()
+  })
+
+  console.log(`listting ${port}`)
+  http.createServer(app.callback()).listen(port)
 }
