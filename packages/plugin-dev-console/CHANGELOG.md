@@ -1,5 +1,13 @@
 # @hakushin/plugin-dev-console
 
+## 0.0.10
+
+### Patch Changes
+
+- 00b0aea: add build command
+- Updated dependencies [00b0aea]
+  - @hakushin/utils@0.0.7
+
 ## 0.0.9
 
 ### Patch Changes

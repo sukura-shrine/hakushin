@@ -1,5 +1,13 @@
 # @hakushin/create-app
 
+## 0.0.13
+
+### Patch Changes
+
+- 00b0aea: add build command
+- Updated dependencies [00b0aea]
+  - @hakushin/utils@0.0.7
+
 ## 0.0.12
 
 ### Patch Changes

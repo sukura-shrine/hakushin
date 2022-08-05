@@ -1,6 +1,6 @@
 {
   "name": "@hakushin/plugin-dev-server",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "main": "dist/index.js",
   "type": "module",
@@ -10,7 +10,7 @@
   },
   "author": "hakushinring",
   "dependencies": {
-    "@hakushin/utils": "workspace:^0.0.6",
+    "@hakushin/utils": "workspace:^0.0.7",
     "cac": "^6.7.12",
     "cross-spawn": "^7.0.3",
     "inquirer": "^8.2.4",
