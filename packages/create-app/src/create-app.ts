@@ -3,7 +3,7 @@ import path from 'path'
 import process from 'process'
 import cp from 'child_process'
 import chalk from 'chalk'
-import { mergePackageJson, fetchGitFileTree, writeFileTreeSync } from '@hakushin/utils'
+import { mergePackageJson, fetchGitFileTree, writeFileTreeSync, clientConfig } from '@hakushin/utils'
 
 export default async function create (appName: string, ref: string = 'pc') {
   let driname = process.cwd().replace(/packages$/, '')
@@ -31,7 +31,10 @@ export default async function create (appName: string, ref: string = 'pc') {
   writeFileTreeSync(tree, projectName)
 
   console.log(chalk.yellow(' >download end'))
-  mergePackageJson(driname, appName)
+  const { port } = await clientConfig()
+  // 防止用户传递字符串
+  const basePort = port && Number(port)
+  await mergePackageJson(driname, appName, basePort)
 
   cp.execSync('pnpm install', { cwd: projectName, stdio: 'inherit' })
 }
