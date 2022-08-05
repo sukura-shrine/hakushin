@@ -1,5 +1,11 @@
 # @hakushin/utils
 
+## 0.0.7
+
+### Patch Changes
+
+- 00b0aea: add build command
+
 ## 0.0.6
 
 ### Patch Changes
