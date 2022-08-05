@@ -16,17 +16,6 @@ async function main () {
   const cli = cac('haku')
 
   cli
-    .command('[name]', '初始化项目')
-    .action(async (name) => {
-      let projectName = name
-      if (!projectName) {
-        const list = process.cwd().split('/')
-        projectName = list[list.length - 1]
-      }
-      await init(projectName)
-    })
-
-  cli
     .command('create <name>', '创建子应用')
     .option('-r, --ref <name>', '模板的branch名称')
     .action(async (name, options) => {
@@ -46,7 +35,20 @@ async function main () {
       plugin(cli)
     })
   } catch (error) {
+    console.log(error)
   }
+
+  cli
+    .command('[name]', '初始化项目')
+    .action(async (name) => {
+      let projectName = name
+      if (!projectName) {
+        const list = process.cwd().split('/')
+        projectName = list[list.length - 1]
+      }
+      await init(projectName)
+    })
+
   cli.help()
   cli.version(version)
   cli.parse()
