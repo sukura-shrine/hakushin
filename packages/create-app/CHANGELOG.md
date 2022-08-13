@@ -1,5 +1,13 @@
 # @hakushin/create-app
 
+## 0.0.14
+
+### Patch Changes
+
+- 28ccf95: config 支持模板仓库配置
+- Updated dependencies [28ccf95]
+  - @hakushin/utils@0.0.8
+
 ## 0.0.13
 
 ### Patch Changes

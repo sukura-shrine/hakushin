@@ -1,5 +1,16 @@
 # @hakushin/plugin-dev-console
 
+## 0.1.0
+
+### Minor Changes
+
+- 26938de: add middleware
+
+### Patch Changes
+
+- Updated dependencies [28ccf95]
+  - @hakushin/utils@0.0.8
+
 ## 0.0.10
 
 ### Patch Changes

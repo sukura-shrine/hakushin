@@ -1,5 +1,12 @@
 # @hakushin/plugin-dev-server
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [28ccf95]
+  - @hakushin/utils@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @hakushin/utils
 
+## 0.0.8
+
+### Patch Changes
+
+- 28ccf95: config 支持模板仓库配置
+
 ## 0.0.7
 
 ### Patch Changes
