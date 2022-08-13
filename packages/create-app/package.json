@@ -1,6 +1,6 @@
 {
   "name": "@hakushin/create-app",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "",
   "type": "module",
   "bin": {
@@ -12,7 +12,7 @@
   },
   "author": "hakushinring",
   "dependencies": {
-    "@hakushin/utils": "workspace:^0.0.7",
+    "@hakushin/utils": "workspace:^0.0.8",
     "cac": "^6.7.12",
     "chalk": "^4",
     "cross-spawn": "^7.0.3"
