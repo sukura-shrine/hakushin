@@ -10,12 +10,12 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "rootDir": "src",
+    "rootDir": "node",
     "outDir": "dist",
     "declaration": true,
     "declarationDir": "dist"
   },
   "files": [
-    "src/index.ts",
+    "node/index.ts",
   ]
 }
