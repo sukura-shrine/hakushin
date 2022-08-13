@@ -3,19 +3,22 @@ import path from 'path'
 import process from 'process'
 import chalk from 'chalk'
 import spawn from 'cross-spawn'
-import { fetchGitFileTree, writeFileTreeSync } from '@hakushin/utils'
+import { fetchGitFileTree, writeFileTreeSync, clientConfig } from '@hakushin/utils'
 
 export default async function init (projectName: string) {
   if (fs.existsSync(projectName)) {
     throw new Error(`${projectName} 文件夹已经存在`)
   }
 
-  console.log('git repo: sukura-shrine/app-template')
+  const { template } = await clientConfig()
+  const repo = template || 'sukura-shrine/app-template'
+
+  console.log(`git repo: ${repo}`)
   console.log(' >branch: main')
   console.log(chalk.yellow(' >download start'))
   console.log()
 
-  const tree = await fetchGitFileTree('main')
+  const tree = await fetchGitFileTree(repo, 'main')
 
   fs.mkdirSync(projectName)
   writeFileTreeSync(tree, projectName)

@@ -3,6 +3,7 @@ import process from 'process'
 
 interface ConfigOptions {
   type: string
+  template?: string
   port: number
   plugins: any[]
 }

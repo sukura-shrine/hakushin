@@ -48,7 +48,7 @@ pnpm start
 ### shrine.config.js
 ```
 {
-  type: 'pc', //项目类型，cli会指向模板的同名branch
+  type: 'pc', //项目类型，cli会指向模板的同名branch，默认main
   template: 'sukura-shrine/app-template', //项目模板地址
   port: 3200, //开发环境端口号, plugin-dev-console启动时的端口号，子应用根据此端口号+1开始分配默认端口
   plugins: []

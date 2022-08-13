@@ -25,7 +25,7 @@ async function fetchFile (url: string): Promise<string> {
   return Buffer.from(data.content, 'base64').toString('utf-8')
 }
 
-export default async function fetchGitFileTree (branch: string = 'main'): Promise<TreeNode[]> {
-  const url = `/repos/sukura-shrine/app-template/contents?ref=${branch}`
+export default async function fetchGitFileTree (repo: string,branch: string = 'main'): Promise<TreeNode[]> {
+  const url = `/repos/${repo}/contents?ref=${branch}`
   return await fetchTree(url)
 }
