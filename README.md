@@ -40,7 +40,7 @@ pnpm start
 ```
 {
   hakushin: {
-    port: 3200, 子应用端口号，cli自动分配，只要不重复可自定义，后续分配端口取最大+1
+    port: 3201, 子应用端口号，cli自动分配，只要不重复可自定义，后续分配端口取最大+1
   }
 }
 ```
@@ -48,8 +48,9 @@ pnpm start
 ### shrine.config.js
 ```
 {
-  type: 'pc', 项目类型
-  port: 3100, //开发环境端口号, 存在devConsole时生效，子应用根据此端口号+100开始分配
+  type: 'pc', //项目类型，cli会指向模板的同名branch
+  template: 'sukura-shrine/app-template', //项目模板地址
+  port: 3200, //开发环境端口号, plugin-dev-console启动时的端口号，子应用根据此端口号+1开始分配默认端口
   plugins: []
 }
 ```
@@ -62,6 +63,7 @@ Commands:
   <name>    初始化项目
   create <name>  创建子应用
     -r, --ref <name>  模板的branch名称
+  build <name>  打包子应用, 打包文件放在项目根目录的`/dist`文件夹
 ```
 
 ## 插件
@@ -69,11 +71,8 @@ Commands:
 存在此插件时，cli 新增命令 `haku micro [name]`，可以在根目录启动子应用
 
 ### @hakushin/plugin-dev-console
-必须搭配`@hakushin/plugin-dev-server`一同使用  
+必须搭配`@hakushin/plugin-dev-server`一同使用
 存在此插件时，cli 新增命令 `haku start [name]`， 可以在根目录启动子应用，并且通过`固定端口号/应用名`的方式访问子应用。因为是通过统一端口对外访问，开发环境下可以方便的成为其他项目的微应用引入
-
-### @hakushin/plugin-build（尚未实现）
-存在此插件时，cli 新增命令 `haku build [name]`，提供打包行为，默认打包文件放到项目根目录的`/dist`文件夹
 
 ## 设计理念
 做此项目初衷是因为，想用monorepo管理微前端时发现monerepo的管理极其繁琐，加入微前端后更加复杂，所以需要一个工具降低开发的复杂度，但市面上没有能提供帮助的cli工具。
