@@ -1,5 +1,13 @@
 # @hakushin/plugin-dev-server
 
+## 0.0.9
+
+### Patch Changes
+
+- a6afac4: workflow add build script
+- Updated dependencies [a6afac4]
+  - @hakushin/utils@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes
