@@ -5,7 +5,12 @@
   "private": true,
   "scripts": {
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "build": "run-s",
+    "build:hakushin": "cd packages/create-app && pnpm build",
+    "build:dev-console": "cd packages/plugin-dev-console && pnpm build",
+    "build:dev-server": "cd packages/plugin-dev-server && pnpm build",
+    "build:uitls": "cd packages/utils && pnpm build"
   },
   "repository": {
     "type": "git",
