@@ -6,7 +6,7 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build": "run-s",
+    "build": "npm-run-all build:hakushin build:dev-console build:dev-server build:uitls",
     "build:hakushin": "cd packages/create-app && pnpm build",
     "build:dev-console": "cd packages/plugin-dev-console && pnpm build",
     "build:dev-server": "cd packages/plugin-dev-server && pnpm build",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.23.0",
     "c8": "^7.11.3",
+    "npm-run-all": "^4.1.5",
     "vitest": "^0.18.0"
   }
 }
