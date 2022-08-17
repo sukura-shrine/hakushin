@@ -6,7 +6,7 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "build": "npm-run-all build:hakushin build:dev-console build:dev-server build:uitls",
+    "build": "npm-run-all build:uitls build:hakushin build:dev-console build:dev-server",
     "build:hakushin": "cd packages/create-app && pnpm build",
     "build:dev-console": "cd packages/plugin-dev-console && pnpm build",
     "build:dev-server": "cd packages/plugin-dev-server && pnpm build",
