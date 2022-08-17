@@ -1,5 +1,11 @@
 # @hakushin/utils
 
+## 0.0.9
+
+### Patch Changes
+
+- a6afac4: workflow add build script
+
 ## 0.0.8
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @hakushin/create-app
 
+## 0.0.15
+
+### Patch Changes
+
+- a6afac4: workflow add build script
+- Updated dependencies [a6afac4]
+  - @hakushin/utils@0.0.9
+
 ## 0.0.14
 
 ### Patch Changes
