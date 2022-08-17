@@ -44,6 +44,5 @@ jobs:
         run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
       - name: Publish
         if: steps.changesets.outputs.hasChangesets == 'false'
-        run: pnpm build
-        run: pnpm -r publish --access public --no-git-checks
+        run: pnpm build && pnpm -r publish --access public --no-git-checks
 
