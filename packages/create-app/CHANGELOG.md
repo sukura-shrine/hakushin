@@ -1,5 +1,11 @@
 # @hakushin/create-app
 
+## 0.0.16
+
+### Patch Changes
+
+- ceb0aba: fix: init error
+
 ## 0.0.15
 
 ### Patch Changes
