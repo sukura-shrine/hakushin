@@ -3,15 +3,14 @@ import path from 'path'
 import process from 'process'
 import chalk from 'chalk'
 import spawn from 'cross-spawn'
-import { fetchGitFileTree, writeFileTreeSync, clientConfig } from '@hakushin/utils'
+import { fetchGitFileTree, writeFileTreeSync } from '@hakushin/utils'
 
 export default async function init (projectName: string) {
   if (fs.existsSync(projectName)) {
     throw new Error(`${projectName} 文件夹已经存在`)
   }
 
-  const { template } = await clientConfig()
-  const repo = template || 'sukura-shrine/app-template'
+  const repo = 'sukura-shrine/app-template'
 
   console.log(`git repo: ${repo}`)
   console.log(' >branch: main')
