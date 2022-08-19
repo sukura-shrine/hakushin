@@ -1,5 +1,11 @@
 # @hakushin/plugin-dev-console
 
+## 0.1.2
+
+### Patch Changes
+
+- f95be71: fix: 找不到配置文件
+
 ## 0.1.1
 
 ### Patch Changes
