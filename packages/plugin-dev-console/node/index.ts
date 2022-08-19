@@ -20,7 +20,7 @@ async function writeCacheFile () {
   fs.writeFileSync(path.join(cachePath, 'app.cache.json'), appsInfo, { flag: 'w' })
 }
 
-async function start (pkgName, shrineConfig?) {
+async function start (pkgName, shrineConfig) {
   const subprocess = spawn('haku', ['micro', pkgName])
 
   subprocess.on('spawn', async () => {
@@ -62,9 +62,10 @@ export default function devConsole (options: Options) {
         if (pkgNames.length === 0) {
           return console.log('dev-console: package 数量为0，请先创建应用')
         }
+        const config = await clientConfig()
 
         if (name) {
-          return start(name)
+          return start(name, config)
         }
         inquirer.prompt([
           {
@@ -74,10 +75,8 @@ export default function devConsole (options: Options) {
             choices: pkgNames,
           },
         ]).then(({ pkgName }) => {
-          clientConfig().then((config) => {
-            service(config)
-            start(pkgName, config)
-          })
+          service(config)
+          start(pkgName, config)
         })
       })
   }
