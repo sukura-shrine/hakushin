@@ -1,5 +1,13 @@
 # @hakushin/plugin-dev-server
 
+## 0.0.10
+
+### Patch Changes
+
+- 7db0392: update version
+- Updated dependencies [7db0392]
+  - @hakushin/utils@0.0.10
+
 ## 0.0.9
 
 ### Patch Changes
