@@ -87,5 +87,17 @@ module.exports = async () => {
 
 此项目就是为了解决这些工程问题，并对用户提供一些简单的API来屏蔽复杂度。cli部分会保持简洁，只添加必须的功能，尽可能保证所有功能可配置，复杂功能会以插件形式提供。
 
-## 后续
-[开发计划](https://github.com/sukura-shrine/hakushin/issues/2)
+## 维护者
+
+[@hakushinring](https://github.com/hakushinring)。
+
+## 如何贡献
+
+非常欢迎你的加入！[提一个 Issue](https://github.com/sukura-shrine/hakushin/issues/new) 或者提交一个 Pull Request。
+
+
+标准 Readme 遵循 [Contributor Covenant](http://contributor-covenant.org/version/1/3/0/) 行为规范。
+
+## 使用许可
+
+[MIT](LICENSE) © Richard Littauer
