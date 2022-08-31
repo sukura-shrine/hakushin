@@ -35,7 +35,7 @@ async function main () {
       plugin(cli)
     })
   } catch (error) {
-    console.log(error)
+    // 初始化时还不存在配置文件
   }
 
   cli
