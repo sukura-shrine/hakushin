@@ -1,5 +1,11 @@
 # @hakushin/create-app
 
+## 0.0.18
+
+### Patch Changes
+
+- 9bc4250: 初始化项目时打印信息异常
+
 ## 0.0.17
 
 ### Patch Changes
