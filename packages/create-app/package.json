@@ -1,6 +1,6 @@
 {
   "name": "@hakushin/create-app",
-  "version": "0.0.18",
+  "version": "0.1.0",
   "description": "",
   "type": "module",
   "bin": {
