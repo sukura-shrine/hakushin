@@ -1,11 +1,13 @@
 import fs from 'fs'
 import path from 'path'
 import process from 'process'
-
 import cac from 'cac'
+
 import init from './init.js'
 import createApp from './create-app.js'
 import build from './build.js'
+import devServer from './dev-server.js'
+
 import { clientConfig } from '@hakushin/utils'
 
 async function main () {
@@ -29,18 +31,29 @@ async function main () {
       await build(name)
     })
 
-  try {
-    const shrineConfig = await clientConfig()
-    shrineConfig.plugins?.forEach(plugin => {
-      plugin(cli)
+  cli
+    .command('micro [name]', 'desc')
+    .action(async (name: string) => {
+      await devServer(name)
     })
+
+
+  let shrineConfig
+  try {
+    shrineConfig = await clientConfig()
   } catch (error) {
     // 初始化时还不存在配置文件
   }
+  shrineConfig?.plugins?.forEach(plugin => {
+    plugin(cli)
+  })
 
   cli
     .command('[name]', '初始化项目')
     .action(async (name) => {
+      if (name === 'start') {
+        throw new Error ('尚未添加插件 @hakushin/plugin-dev-console')
+      }
       let projectName = name
       if (!projectName) {
         const list = process.cwd().split('/')
