@@ -15,7 +15,8 @@
     "@hakushin/utils": "workspace:^0.0.10",
     "cac": "^6.7.12",
     "chalk": "^4",
-    "cross-spawn": "^7.0.3"
+    "cross-spawn": "^7.0.3",
+    "inquirer": "^8.2.4"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
