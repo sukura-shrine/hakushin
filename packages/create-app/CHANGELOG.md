@@ -1,5 +1,11 @@
 # @hakushin/create-app
 
+## 0.1.0
+
+### Minor Changes
+
+- 38bf093: dev-server 插件废弃，加入主应用
+
 ## 0.0.18
 
 ### Patch Changes
