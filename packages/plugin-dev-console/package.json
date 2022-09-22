@@ -5,25 +5,35 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "start": "vite",
+    "start": "webpack server",
     "build": "tsc",
     "dev": "tsc -w"
   },
   "author": "hakushinring",
   "dependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@hakushin/utils": "workspace:^0.0.10",
     "@koa/router": "^10.1.1",
-    "@vitejs/plugin-react": "^1.3.2",
+    "babel-loader": "^8.2.5",
     "cac": "^6.7.12",
     "chalk": "^4",
     "cross-spawn": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
     "inquirer": "^8.2.4",
     "koa": "^2.13.4",
     "open": "^8.4.0",
     "qiankun": "^2.7.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "vite": "^2.9.10"
+    "style-loader": "^3.3.1",
+    "swr": "^1.3.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",

@@ -18,10 +18,11 @@ router.get('/api/middleware/:appName', async (ctx, next) => {
   await next()
   const { appName } = ctx.params
   const url = path.join(process.cwd(), `packages/${appName}/.middleware.js`)
-  const file = (await import(url)).default
-  if (file) {
+  try {
+    const file = (await import(url)).default
     ctx.body = { data: { file: file.toString(), name: '.middleware.js', url } }
-  }else {
+  } catch (error) {
+    ctx.statusCode = 404
     ctx.body = { success: false, msg: `找不到文件 -> ${url}` }
   }
 })
@@ -30,7 +31,7 @@ app.use(router.routes())
 
 export default function service (shrineConfig) {
   const port = shrineConfig?.port ? Number(shrineConfig.port) - 1 : 3199
-  // 传给vite
+  // 经由webpack传递给web端
   process.env.SERVICE_PORT = String(port)
 
   app.use(async (ctx, next) => {

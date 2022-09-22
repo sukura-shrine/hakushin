@@ -65,6 +65,7 @@ export default function devConsole (options: Options) {
         const config = await clientConfig()
 
         if (name) {
+          service(config)
           return start(name, config)
         }
         inquirer.prompt([
