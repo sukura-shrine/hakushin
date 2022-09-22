@@ -19,7 +19,7 @@ export default function App () {
   const apps = useMemo(() => {
     if (!data) return null
     return data.map(item => {
-      const { name, version, author, description, email, hakushin } = item
+      const { name } = item
       return (
         <option key={name}>{name}</option>
       )
