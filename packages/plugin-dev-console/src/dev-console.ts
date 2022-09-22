@@ -1,10 +1,10 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
+// import path from 'path'
 import { registerMicroApps, start } from 'qiankun'
-// import App from './app'
 import { getAppsInfo, getMiddlewareFile } from './services'
 
-const appName = process.env.ENV_APP_NAME
+const {
+  VITE_APP_NAME: appName,
+} = import.meta.env
 
 async function main () {
   const data = await getAppsInfo()
@@ -30,6 +30,3 @@ async function main () {
 }
 
 main()
-
-// const root = ReactDOM.createRoot(document.getElementById('utils'));
-// root.render(<App />)

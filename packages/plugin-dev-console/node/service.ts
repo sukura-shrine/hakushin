@@ -21,7 +21,7 @@ router.get('/api/middleware/:appName', async (ctx, next) => {
   try {
     const file = (await import(url)).default
     ctx.body = { data: { file: file.toString(), name: '.middleware.js', url } }
-  } catch (error) {
+   } catch (error) {
     ctx.statusCode = 404
     ctx.body = { success: false, msg: `找不到文件 -> ${url}` }
   }

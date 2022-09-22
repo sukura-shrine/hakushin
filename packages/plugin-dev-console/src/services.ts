@@ -1,6 +1,8 @@
 import useSWR from 'swr'
 
-const servicePort = process.env.ENV_SERVICE_PORT
+const {
+  VITE_SERVICE_PORT: servicePort,
+} = import.meta.env
 
 const fetchAPi = async (input, init?) => {
   const url = `//localhost:${servicePort}${input}`
