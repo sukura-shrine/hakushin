@@ -1,5 +1,11 @@
 # @hakushin/plugin-dev-console
 
+## 0.1.4
+
+### Patch Changes
+
+- 708e430: vite 改 webpack
+
 ## 0.1.3
 
 ### Patch Changes
