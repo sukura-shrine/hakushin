@@ -1,5 +1,6 @@
 // import path from 'path'
 import { registerMicroApps, start } from 'qiankun'
+import { getAppsInfo, getMiddlewareFile } from './services'
 
 const {
   VITE_APP_NAME: appName,
@@ -13,7 +14,7 @@ const fetchAPi = async (input, init?) => {
 }
 
 async function main () {
-  const { data } = await fetchAPi(`/api/appsInfo`)
+  const data = await getAppsInfo()
   const list = data.map(item => {
     const { name, hakushin } = item
     return {
@@ -24,10 +25,13 @@ async function main () {
   })
   registerMicroApps(list)
 
-  const { data: { file } } = await fetchAPi(`/api/middleware/${appName}`)
-  const middleware = eval(file)
-  if (typeof middleware === 'function') {
-    middleware()
+  try {
+    const data = await getMiddlewareFile(appName as string)
+    const middleware = eval(data.file as string)
+    if (typeof middleware === 'function') {
+      middleware()
+    }
+  } catch (error) {
   }
   start()
 }
