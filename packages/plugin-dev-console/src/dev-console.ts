@@ -4,14 +4,7 @@ import { getAppsInfo, getMiddlewareFile } from './services'
 
 const {
   VITE_APP_NAME: appName,
-  VITE_SERVICE_PORT: servicePort,
 } = import.meta.env
-
-const fetchAPi = async (input, init?) => {
-  const url = `//localhost:${servicePort}${input}`
-  const res = await fetch(url, init)
-  return res.json()
-}
 
 async function main () {
   const data = await getAppsInfo()
