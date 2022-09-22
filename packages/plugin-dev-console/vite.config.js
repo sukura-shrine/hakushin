@@ -1,7 +1,6 @@
 import fs from 'fs'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-// import qiankun from 'vite-plugin-qiankun'
 
 const fileString = `
 VITE_APP_NAME=${process.env.APP_NAME}

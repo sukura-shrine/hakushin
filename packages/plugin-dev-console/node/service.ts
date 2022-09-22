@@ -31,7 +31,7 @@ app.use(router.routes())
 
 export default function service (shrineConfig) {
   const port = shrineConfig?.port ? Number(shrineConfig.port) - 1 : 3199
-  // 传给vite
+  // 经由webpack传递给web端
   process.env.SERVICE_PORT = String(port)
 
   app.use(async (ctx, next) => {

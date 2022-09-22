@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>micro-app</title>
+    <style>
+      body {
+        display: grid;
+        grid-template-rows: 1fr;
+        height: 100vh;
+        margin: 0;
+      }
+    </style>
   </head>
   <body>
     <div id="dev-console"></div>
+    <div id="utils"></div>
     <script type="module" src="/src/dev-console.ts"></script>
   </body>
 </html>
