@@ -1,5 +1,11 @@
 # @hakushin/plugin-dev-console
 
+## 0.1.5
+
+### Patch Changes
+
+- ea8ae0e: rollback webpack
+
 ## 0.1.4
 
 ### Patch Changes
