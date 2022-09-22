@@ -23,7 +23,7 @@
     "qiankun": "^2.7.2",
     "react": "^18.2.0",
     "swr": "^1.3.0",
-    "vite": "^2.9.10"
+    "vite": "^3.1.3"
   },
   "devDependencies": {
     "@types/node": "^17.0.25",
