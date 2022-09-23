@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "tsc -w",
-    "build": "tsc"
+    "build": "tsc",
+    "beta": "node ../../scripts/beta-version.js"
   },
   "author": "hakushinring",
   "devDependencies": {
