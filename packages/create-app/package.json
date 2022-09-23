@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "beta": "node ../../scripts/beta-version.js"
   },
   "author": "hakushinring",
   "dependencies": {
