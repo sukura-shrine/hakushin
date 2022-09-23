@@ -30,6 +30,9 @@ jobs:
       - name: Test case
         run: pnpm run test
 
+      - name: Beta version
+        run: pnpm beta && git add. && git commit -m 'Beta version update'
+
       - name: Set npm config
         run: npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
       - name: Publish
