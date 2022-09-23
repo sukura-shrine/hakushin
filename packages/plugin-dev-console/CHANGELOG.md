@@ -1,5 +1,11 @@
 # @hakushin/plugin-dev-console
 
+## 0.2.0
+
+### Minor Changes
+
+- d08e05b: feat: qiankun 改为 wujie;vite 改为 webpack
+
 ## 0.1.5
 
 ### Patch Changes
