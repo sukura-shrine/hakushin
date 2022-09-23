@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "target": "es6",
-    "module": "es2020",
+    "target": "esnext",
+    "module": "esnext",
     "alwaysStrict": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,

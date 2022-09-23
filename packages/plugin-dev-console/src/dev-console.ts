@@ -1,5 +1,4 @@
-// import path from 'path'
-import { registerMicroApps, start } from 'qiankun'
+import { startApp } from "wujie"
 import { getAppsInfo, getMiddlewareFile } from './services'
 
 const {
@@ -8,25 +7,28 @@ const {
 
 async function main () {
   const data = await getAppsInfo()
-  const list = data.map(item => {
-    const { name, hakushin } = item
-    return {
-      name,
-      activeRule: name,
-      container: '#dev-console',
-      entry: `//localhost:${hakushin.port}` }
-  })
-  registerMicroApps(list)
-
   try {
     const data = await getMiddlewareFile(appName as string)
     const middleware = eval(data.file as string)
     if (typeof middleware === 'function') {
-      middleware()
+      await middleware()
     }
   } catch (error) {
   }
-  start()
+  const list = location.pathname.match(/[^/?#]+/)
+  if (list) {
+    const name = list[0]
+    const hakushin = data.find(item => {
+      return item.name === name
+    })?.hakushin
+    if (hakushin) {
+      startApp({
+        name,
+        el: document.getElementById('dev-console') as HTMLElement,
+        url: `http://localhost:${hakushin.port}/${name}`
+      })
+    }
+  }
 }
 
 main()
