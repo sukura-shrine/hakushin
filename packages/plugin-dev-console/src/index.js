@@ -1,15 +1,13 @@
 import { startApp } from "wujie"
-import { getAppsInfo, getMiddlewareFile } from './services'
+import { getAppsInfo, getMiddlewareFile } from './services.js'
 
-const {
-  VITE_APP_NAME: appName,
-} = import.meta.env
+const appName = process.env.ENV_APP_NAME
 
 async function main () {
   const data = await getAppsInfo()
   try {
-    const data = await getMiddlewareFile(appName as string)
-    const middleware = eval(data.file as string)
+    const data = await getMiddlewareFile(appName)
+    const middleware = eval(data.file)
     if (typeof middleware === 'function') {
       await middleware()
     }
@@ -24,7 +22,7 @@ async function main () {
     if (hakushin) {
       startApp({
         name,
-        el: document.getElementById('dev-console') as HTMLElement,
+        el: document.getElementById('dev-console'),
         url: `http://localhost:${hakushin.port}/${name}`
       })
     }
