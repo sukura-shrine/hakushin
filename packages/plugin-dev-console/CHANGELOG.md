@@ -1,5 +1,13 @@
 # @hakushin/plugin-dev-console
 
+## 0.2.1
+
+### Patch Changes
+
+- e1ba9f1: fix: 过滤配置文件异常的 package
+- Updated dependencies [e1ba9f1]
+  - @hakushin/utils@0.0.11
+
 ## 0.2.0
 
 ### Minor Changes
