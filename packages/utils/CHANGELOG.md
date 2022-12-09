@@ -1,5 +1,11 @@
 # @hakushin/utils
 
+## 0.0.11
+
+### Patch Changes
+
+- e1ba9f1: fix: 过滤配置文件异常的 package
+
 ## 0.0.10
 
 ### Patch Changes
