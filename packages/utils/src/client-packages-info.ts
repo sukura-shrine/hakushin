@@ -9,6 +9,8 @@ interface PkgInfo {
   email?: string,
   hakushin: {
     port: number
+    start: boolean
+    publish: boolean
   }
 }
 
