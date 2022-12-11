@@ -1,5 +1,11 @@
 # @hakushin/plugin-dev-console
 
+## 0.2.2
+
+### Patch Changes
+
+- 7cd4532: change utils version
+
 ## 0.2.1
 
 ### Patch Changes
