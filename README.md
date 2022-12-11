@@ -37,7 +37,9 @@ pnpm start
 ```
 {
   hakushin: {
-    port: 3201, 子应用端口号，cli自动分配，只要不重复可自定义，后续分配端口取最大+1
+    port: 3201, // 子应用端口号，cli自动分配，只要不重复可自定义，后续分配端口取最大+1
+    start: true, // 是否可启动，false时haku start不会出现此应用
+    publish: true, // 是否可发布
   }
 }
 ```
@@ -45,9 +47,9 @@ pnpm start
 ### shrine.config.js
 ```
 {
-  type: 'pc', //项目类型，cli会指向模板的同名branch，默认main
-  template: 'sukura-shrine/app-template', //项目模板地址
-  port: 3200, //开发环境端口号, plugin-dev-console启动时的端口号，子应用根据此端口号+1开始分配默认端口
+  type: 'pc', // 项目类型，cli会指向模板的同名branch，默认main
+  template: // 'sukura-shrine/app-template', //项目模板地址
+  port: 3200, // 开发环境端口号, plugin-dev-console启动时的端口号，子应用根据此端口号+1开始分配默认端口
   plugins: []
 }
 ```
