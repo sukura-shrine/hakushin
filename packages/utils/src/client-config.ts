@@ -9,6 +9,8 @@ interface ConfigOptions {
 }
 
 export default async function clientConfig (): Promise<ConfigOptions> {
-  const configPath = path.join(process.cwd(), 'shrine.config.js')
+  // windows要求必须加协议头
+  const cwd = process.cwd().replace(/^.:/, a => `file:\\\\${a}`)
+  const configPath = path.join(cwd, 'shrine.config.js')
   return (await import(configPath)).default
 }
