@@ -62,7 +62,6 @@ export default function devConsole (options: Options) {
           .filter(item => item.hakushin?.start !== false)
           .filter(item => item.name)
           .map(item => item.name)
-        console.log(pkgNames)
         if (pkgNames.length === 0) {
           return console.log('dev-console: package 数量为0，请先创建应用')
         }

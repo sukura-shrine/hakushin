@@ -43,6 +43,10 @@ async function main () {
     shrineConfig = await clientConfig()
   } catch (error) {
     // 初始化时还不存在配置文件
+    console.warn(error)
+    console.log('初始化时还不存在配置文件，此时可忽略这个错误')
+    console.log('----------------------------------------')
+    console.log()
   }
   shrineConfig?.plugins?.forEach(plugin => {
     plugin(cli)

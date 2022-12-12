@@ -17,7 +17,8 @@ router.get('/api/appsInfo', async (ctx, next) => {
 router.get('/api/middleware/:appName', async (ctx, next) => {
   await next()
   const { appName } = ctx.params
-  const url = path.join(process.cwd(), `packages/${appName}/.middleware.js`)
+  const cwd = process.cwd().replace(/^.:/, a => `file:\\\\${a}`)
+  const url = path.join(cwd, `packages/${appName}/.middleware.js`)
   try {
     const file = (await import(url)).default
     ctx.body = { data: { file: file.toString(), name: '.middleware.js', url } }
