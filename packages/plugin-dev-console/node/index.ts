@@ -40,7 +40,7 @@ async function start (pkgName, shrineConfig) {
       SHRINE_PORT: String(shrineConfig.port),
       APP_NAME: pkgName,
     }
-    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit', env })
+    spawn('pnpm', ['start'], { cwd: dirname.replace(/^\\/, ''), stdio: 'inherit', env })
 
     openUrl(`http://localhost:${shrineConfig.port}/${pkgName}`, { wait: true })
   })

@@ -12,7 +12,7 @@ import { clientConfig } from '@hakushin/utils'
 
 async function main () {
   const selfPkgPath = path.join(new URL('.', import.meta.url).pathname, '../package.json')
-  const pkg = fs.readFileSync(selfPkgPath).toString()
+  const pkg = fs.readFileSync(selfPkgPath.replace(/^\\/, '')).toString()
   const { version } = JSON.parse(pkg)
 
   const cli = cac('haku')
