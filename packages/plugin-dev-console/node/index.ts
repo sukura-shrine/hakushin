@@ -40,7 +40,7 @@ async function start (pkgName, shrineConfig) {
       SHRINE_PORT: String(shrineConfig.port),
       APP_NAME: pkgName,
     }
-    spawn('pnpm', ['start'], { cwd: dirname, stdio: 'inherit', env })
+    spawn('pnpm', ['start'], { cwd: dirname.replace(/^\\/, ''), stdio: 'inherit', env })
 
     openUrl(`http://localhost:${shrineConfig.port}/${pkgName}`, { wait: true })
   })
@@ -62,7 +62,6 @@ export default function devConsole (options: Options) {
           .filter(item => item.hakushin?.start !== false)
           .filter(item => item.name)
           .map(item => item.name)
-        console.log(pkgNames)
         if (pkgNames.length === 0) {
           return console.log('dev-console: package 数量为0，请先创建应用')
         }
