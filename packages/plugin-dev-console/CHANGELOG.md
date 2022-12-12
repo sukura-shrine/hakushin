@@ -1,5 +1,25 @@
 # @hakushin/plugin-dev-console
 
+## 0.2.2
+
+### Patch Changes
+
+- 7cd4532: change utils version
+
+## 0.2.1
+
+### Patch Changes
+
+- e1ba9f1: fix: 过滤配置文件异常的 package
+- Updated dependencies [e1ba9f1]
+  - @hakushin/utils@0.0.11
+
+## 0.2.0
+
+### Minor Changes
+
+- d08e05b: feat: qiankun 改为 wujie;vite 改为 webpack
+
 ## 0.1.5
 
 ### Patch Changes

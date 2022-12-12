@@ -58,12 +58,15 @@ export default function devConsole (options: Options) {
     cli
       .command('start [name]', 'desc')
       .action(async (name) => {
-        const pkgNames = (await clientPackagesInfo(process.cwd())).map(item => item.name)
+        const pkgNames = (await clientPackagesInfo(process.cwd()))
+          .filter(item => item.hakushin?.start !== false)
+          .filter(item => item.name)
+          .map(item => item.name)
+        console.log(pkgNames)
         if (pkgNames.length === 0) {
           return console.log('dev-console: package 数量为0，请先创建应用')
         }
         const config = await clientConfig()
-
         if (name) {
           service(config)
           return start(name, config)
