@@ -1,5 +1,11 @@
 # @hakushin/utils
 
+## 0.0.12
+
+### Patch Changes
+
+- 2d21710: fix: windows path
+
 ## 0.0.11
 
 ### Patch Changes

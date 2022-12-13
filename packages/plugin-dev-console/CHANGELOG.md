@@ -1,5 +1,13 @@
 # @hakushin/plugin-dev-console
 
+## 0.2.3
+
+### Patch Changes
+
+- 2d21710: fix: windows path
+- Updated dependencies [2d21710]
+  - @hakushin/utils@0.0.12
+
 ## 0.2.2
 
 ### Patch Changes
