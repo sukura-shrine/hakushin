@@ -1,5 +1,13 @@
 # @hakushin/create-app
 
+## 0.1.2
+
+### Patch Changes
+
+- 2d21710: fix: windows path
+- Updated dependencies [2d21710]
+  - @hakushin/utils@0.0.12
+
 ## 0.1.1
 
 ### Patch Changes
